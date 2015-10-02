@@ -1,15 +1,22 @@
-<h1>Message list</h1>
-<%= @messages.each do |message| %>
-   Name:<%= message.name %>
-   Content:<%= message.body %>
-   <br>
-<% end %>
+<div class="panel panel-default">
+   <div class="panel-heading">
+      Message List
+   </div>
+   
+   <div class="panel-body">
+      <% @messages.each do |message| %>
+        <span class="label label-info"><%= message.name %></span>
+        <%= message.body %>
+        <br>
+      <% end %>
+   </div>
+</div>
 
 <%= form_for(Message.new) do |f| %>
-   Name : 
-   <%= f.text_field :name %>
-   
-   Content : 
-   <%= f.text_field :body %>
-   <%= f.submit %>
+  Name:
+  <%= f.text_field :name %>
+  
+  Content:
+  <%= f.text_field :body %>
+  <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
