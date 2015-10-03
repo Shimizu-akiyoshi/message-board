@@ -1,4 +1,18 @@
 class MessagesController < ApplicationController
+  before_action :set_message, only: [:edit, :update]
+  
+  def edit
+  end
+
+  def update
+    if @message.update(message_params)
+      redirect_to root_path , notice: 'Completed edit message'
+      
+    else
+      render 'edit'
+    end
+  end
+  
   def index
     @messages = Message.all
     @message = Message.new
@@ -16,7 +30,12 @@ class MessagesController < ApplicationController
     end
   end
  
-  private 
+  private
+  
+  def set_message
+    @message = Message.find(params[:id])
+  end
+  
   def message_params
     params.require(:message).permit(:name, :body)
   end
