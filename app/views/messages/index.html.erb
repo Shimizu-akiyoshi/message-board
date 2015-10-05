@@ -15,39 +15,7 @@
    </div>
 </div>
 
-<%= form_for(Message.new, html: {class: "form-horizontal"}) do |f| %> 
-  <% if @message.errors.present? %>
-    <div class="alert alert-danger">
-        <%= alert %>
-        <ul>
-            <% @message.errors.full_messages.each do |full_message| %>
-            <li>
-                <%= full_message %>
-            </li>
-            <% end %>
-        </ul>
-    </div>
-    <% end %>
-  <div class="form-group">
-     <%= f.label :name, :id => "name-label", :class => "col-sm-1 control-label", style: "font-size:20px; " %>
-     <div class="col-sm-11">
-        <%= f.text_field :name, :class => "form-control" %>
-     </div>
-  </div>
-  <br>
-  <div class="form-group">
-     <%= f.label :name, "Content", :class => "col-sm-1 control-label", style: "font-size:20px; " %>
-     <div class="col-sm-11">
-        <%= f.text_area :body, class: "form-control" %>
-     </div>
-  </div>
-
-  <div class="submit">
-     <div class="col-sm-offset-1">
-        <%= f.submit "Send", class: "btn btn-primary btn-lg btn-block", style: "margin-left: 3px; margin-top: 20px;" %>
-     </div>
-  </div>
-  <%= render 'form' %>
+<%= render 'form' %>
   
   
 <% end %>

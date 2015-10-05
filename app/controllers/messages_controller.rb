@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
       redirect_to root_path , notice: "Saved message"
     else
       @messages = Message.all
-      flash.now[:alert] = "Sorry, it failed to save the message"
+      flash.now[:alert] = "Sorry, failed to save the message"
       render 'index'
     end
   end
